@@ -46,9 +46,9 @@ class Calculator extends Component {
     // Take the currentExpression and evaluate it with eval(String)
     const currentExpression = this.state.currentExpression || 0;
 
-    // Wrapping in a try & catch in the case of invalid arithmetic strings
     let evaluation = 'NaN';
 
+    // Wrapping in a try & catch in the case of invalid arithmetic strings
     try {
       evaluation = eval(currentExpression);
     }
@@ -56,10 +56,12 @@ class Calculator extends Component {
       console.error('Arithmetic Error: ' + currentExpression);
     }
 
+    // Add evaluation to previousEvaluations
     const previousEvaluations = this.state.previousEvaluations;
     previousEvaluations.push(currentExpression + ' = ' + evaluation);
 
     this.setState({
+      // Edge Case: We don't want to make the currentExpression 'NaN' if it was evaluted with 'NaN'
       currentExpression: evaluation !== 'NaN' ? evaluation : '',
       previousEvaluations: previousEvaluations
     });
