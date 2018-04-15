@@ -128,7 +128,7 @@ Another side note, we need to use `className` instead of `class`, because `class
 
 ## Part 3: Updating the Calculator Component
 
-### Switching from <div> to <Button>
+### Switching from `<div>` to `<Button>`
 ### Adding Click Handlers
 
 ## Part 4: Implementing the Calculator Functionality
