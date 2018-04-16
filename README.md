@@ -157,7 +157,7 @@ Now in our `render()` function, let's replace our `<div className="button" />` w
 
 A couple things to note, while most HTML tags have both an opening and closing tag like a `<div></div>`, for React components, if we don't need the closing tag, we can create a self-closing tag as shown `<div />`. In this case, the `<Button />` translates to `<Button></Button>`.
 
-In addition, we our method of inserting props into our components is similar to how we define HTML tag attributes. You can also notice that the `isOrange` prop is inherently `false`, so only for the '÷' button do we need to make it `true`.
+In addition, our method of inserting props into our components is similar to how we define HTML tag attributes. You can also notice that the `isOrange` prop is inherently `false`, so only for the '÷' button do we need to make it `true`.
 
 Convert the rest of the `<div>`s into `<Button />`s and run the app again with `npm start` or `yarn start` to make sure everything's still working.
 
@@ -203,7 +203,7 @@ numberClicked = () => {
 <Button text="AC" onClick={this.numberClicked}
 ```
 
-A couple things to note, numberClicked was defined as a Javascript Arrow Function `() => {}`, rather than a normal function for reasons to how Javascript works. Essentially, it becomes a scoping issue with `this` in JS. For more information on [Arrow Functions vs. Normal Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) check out the Mozilla Docs!
+A couple things to note, numberClicked was defined as a Javascript Arrow Function `() => {}`, rather than a normal function for reasons to how JS works. Essentially, it becomes a scoping issue with `this` in JS. For more information on [Arrow Functions vs. Normal Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) check out the Mozilla Docs!
 
 In addition, we pass our function to our `<Button>` as
 
