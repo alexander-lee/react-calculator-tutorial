@@ -438,7 +438,7 @@ render() {
       ...
 ```
 
-Ignoring the first calculation `<div>` (this was to display the currentResult), below we have code that will iterate through `this.state.previousEvaluations` and return a `<div className="calculation-item">` containing the string from `this.state.previousEvaluations`.
+Ignoring the first calculation-item `<div>` (this was to display the currentExpression), below we have code that will iterate through `this.state.previousEvaluations` and return a `<div className="calculation-item">` containing the string from `this.state.previousEvaluations`.
 
 `Array.map(func)` is a JS function that takes in an array and returns a new array depending on what you return from the `func`. For more information about [.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) check out the Mozilla Docs!
 
@@ -466,7 +466,7 @@ We can make our clear button, clear our state (essentially setting it back to wh
 
 `currentExpression === ''` should be a good condition to help you with that.
 
-### 🎉Hurray!!🎉 
+### 🎉Hurray! 🎉 
 We have completed our Calculator! Check out the **Optional** section below to complete the functionality of the rest of the buttons.
 
 ‎
