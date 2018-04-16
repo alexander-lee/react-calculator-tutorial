@@ -124,8 +124,8 @@ class Calculator extends Component {
   flipSign = () => {
     let currentExpression = this.state.currentExpression;
 
-    // Check if the currentExpression consists of only numbers or 1 '-' sign in the beginning
-    if (currentExpression.match(/^-?[0-9]+$/))
+    // Check if the currentExpression consists of only numbers or 1 or 0 '-' signs in the beginning
+    if (currentExpression.match(/^-?[0-9]+$/) && currentExpression !== '0')
     {
       if (currentExpression[0] === '-') {
         currentExpression = currentExpression.substring(1);
