@@ -30,8 +30,7 @@ $ npm start # or yarn start
 
 You should see a calculator similar to the one shown below. None of the buttons work right now, but that's up to us to implement!
 
-
-
+![Calculator Demo](https://i.imgur.com/Jlimhfy.png)
 ‎
 
 ## Part 2: Creating a Button Component
@@ -164,7 +163,7 @@ Convert the rest of the `<div>`s into `<Button />`s and run the app again with `
 
 Everything should look the same; however, now our code should be in React. If you open up the Chrome Developer Tools and click on the React tab (or a similar method if you're using a different browser), you should see the following:
 
-ADD IMAGE HERE
+![Calculator Dev Tools](https://i.imgur.com/NXwiqfv.png)
 
 With the React Developer Tools, we have the ability to see what our React DOM (Document Object Model) looks like, and we also can inspect specific components to view their respective props or state values.
 
@@ -222,7 +221,7 @@ This is because, doing the latter will immediately call numberClicked instead of
 
 Let's run the app again, and upon clicking the 'AC' Button, you should get an alert to pop up similar to the one below.
 
-INSERT IMAGE HERE
+![Calculator Button Handler](https://i.imgur.com/BVRRss9.png)
 
 Awesome! Now that we have button clicking to work, we can finally start adding functionality to our Calculator!
 
@@ -447,7 +446,7 @@ We also **reverse** the order of how the <div `className="calculation-item">`s a
 
 Now run the app again, upon entering a calculation, we should now have a list of previous expressions.
 
-IMG HERE
+![Calculator with Previous Results](https://i.imgur.com/DK3cxX3.png)
 
 
 ‎
