@@ -7,11 +7,15 @@ By the end of this tutorial, I hope you all will have a better understanding of 
 
 Be sure to check the [slides](https://docs.google.com/presentation/d/1y2mXW6CcVWq6aSKoHpaVXErziWts0eYvW9ICelN3grY/edit#slide=id.p) for some React background information!
 
+‎
+
 ## Prerequisites
 Before this tutorial, make sure to download the following:
 
 * [Node.js/NPM](https://nodejs.org/en/) (I recommend the Latest Stable Version)
 * [React Dev Tools Chrome Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or the respective extension for your browser.
+
+‎
 
 ## Part 1: Setup
 All of our files should be listed under `/react-calculator`.
@@ -26,8 +30,8 @@ $ npm start # or yarn start
 
 You should see a calculator similar to the one shown below. None of the buttons work right now, but that's up to us to implement!
 
-PUT IMAGE HERE
-
+![Calculator Demo](https://i.imgur.com/Jlimhfy.png)
+‎
 
 ## Part 2: Creating a Button Component
 If we look at our Calculator component in `src/Calculator.js`, we can see this is what's rendering our Calculator.
@@ -45,6 +49,7 @@ If we look at the `render()` function, there is a lot of similar looking `<div>`
 
 Using the power of React, we should be able to make more reusable code, but converting these buttons into components.
 
+‎
 
 ### Making the Button Component
 Create the file `src/Button.js`, and copy the paste the following code below:
@@ -80,6 +85,8 @@ class Button extends Component {
 Here, we can see the different types of props, React has to offer. The purpose of defining the `propTypes` is so React can validate the variable type of your props and can throw warnings when they aren't (such as having number for a prop that was defined as a bool).
 
 A List of React's PropTypes can be [found here](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+‎
 
 ### Writing our Render Function
 Every React component requires a `render()` function that defines what "HTML" the component should return upon rendering. This should look like the `<div>` defined originally in our `<Calculator />`
@@ -125,6 +132,8 @@ render() {
 
 Another side note, we need to use `className` instead of `class`, because `class` is reserved by HTML for CSS classes, so React needed to find another term to fit the same purpose.
 
+‎
+
 ## Part 3: Updating the Calculator Component
 
 ### Switching from `<div>` to `<Button>`
@@ -148,15 +157,17 @@ Now in our `render()` function, let's replace our `<div className="button" />` w
 
 A couple things to note, while most HTML tags have both an opening and closing tag like a `<div></div>`, for React components, if we don't need the closing tag, we can create a self-closing tag as shown `<div />`. In this case, the `<Button />` translates to `<Button></Button>`.
 
-In addition, we our method of inserting props into our components is similar to how we define HTML tag attributes. You can also notice that the `isOrange` prop is inherently `false`, so only for the '÷' button do we need to make it `true`.
+In addition, our method of inserting props into our components is similar to how we define HTML tag attributes. You can also notice that the `isOrange` prop is inherently `false`, so only for the '÷' button do we need to make it `true`.
 
 Convert the rest of the `<div>`s into `<Button />`s and run the app again with `npm start` or `yarn start` to make sure everything's still working.
 
 Everything should look the same; however, now our code should be in React. If you open up the Chrome Developer Tools and click on the React tab (or a similar method if you're using a different browser), you should see the following:
 
-ADD IMAGE HERE
+![Calculator Dev Tools](https://i.imgur.com/NXwiqfv.png)
 
 With the React Developer Tools, we have the ability to see what our React DOM (Document Object Model) looks like, and we also can inspect specific components to view their respective props or state values.
+
+‎
 
 ### Adding Click Handlers
 Now, let's add functionality to these buttons. In React, when working with a parent and children components, it's a standard practice to create a click handler in the parent, and then pass the handler to its children via a prop.
@@ -192,7 +203,7 @@ numberClicked = () => {
 <Button text="AC" onClick={this.numberClicked}
 ```
 
-A couple things to note, numberClicked was defined as a Javascript Arrow Function `() => {}`, rather than a normal function for reasons to how Javascript works. Essentially, it becomes a scoping issue with `this` in JS. For more information on [Arrow Functions vs. Normal Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) check out the Mozilla Docs!
+A couple things to note, numberClicked was defined as a Javascript Arrow Function `() => {}`, rather than a normal function for reasons to how JS works. Essentially, it becomes a scoping issue with `this` in JS. For more information on [Arrow Functions vs. Normal Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) check out the Mozilla Docs!
 
 In addition, we pass our function to our `<Button>` as
 
@@ -210,11 +221,13 @@ This is because, doing the latter will immediately call numberClicked instead of
 
 Let's run the app again, and upon clicking the 'AC' Button, you should get an alert to pop up similar to the one below.
 
-INSERT IMAGE HERE
+![Calculator Button Handler](https://i.imgur.com/BVRRss9.png)
 
 Awesome! Now that we have button clicking to work, we can finally start adding functionality to our Calculator!
 
 ## Part 4: Implementing the Calculator Functionality
+
+‎
 
 ### Adding a Component State
 If you look at our Calculator `render()` function, we have hardcoded `0` into the section where our output should be.
@@ -285,6 +298,8 @@ else {
 }
 ```
 
+‎
+
 ### Implementing Number Buttons
 Now that we have our state, we can augment this in our `numberClicked` handler. React gives us a `setState({ newState })` function that will call the `render()` function after setting the state. This makes it very useful such that we don't have to call `render` ourselves after updating the state of our component.
 
@@ -314,6 +329,7 @@ onClick={() => this.numberClicked('5')}
 
 For every **number** button, add the `numberClicked` handler, and now your calculator should be semi-functional!
 
+‎
 
 ### Implementing Addition / Subtraction
 For addition and subtraction, we should make different click handlers with similar functionality to the `numberClicked` handler, except we need to append a `+` or `-` sign instead. The addition click handler is shown below:
@@ -330,6 +346,8 @@ addClicked = () => {
 ```
 
 Try the subtraction click handler on your own! **Remember to link the click handlers to your buttons!**
+
+‎
 
 ### Implementation the Evaluation (=) Button
 For the evaluation or equals button, we should also make a different click handler called `evaluate()`.
@@ -354,6 +372,8 @@ This sets the evaluation on default to 'NaN', and if `eval()` succeeds, then we 
 **Remember to link this with the = button in your render method!**
 
 Now when we run our app again, we can now type valid expressions, our calculator should show the result of the expression!
+
+‎
 
 ### Storing Previous Results
 Now let's use the power of our React state to store the previous results as well. In our `constructor()`, let's add a new state variable to store all of our results.
@@ -418,7 +438,7 @@ render() {
       ...
 ```
 
-Ignoring the first calculation `<div>` (this was to display the currentResult), below we have code that will iterate through `this.state.previousEvaluations` and return a `<div className="calculation-item">` containing the string from `this.state.previousEvaluations`.
+Ignoring the first calculation-item `<div>` (this was to display the currentExpression), below we have code that will iterate through `this.state.previousEvaluations` and return a `<div className="calculation-item">` containing the string from `this.state.previousEvaluations`.
 
 `Array.map(func)` is a JS function that takes in an array and returns a new array depending on what you return from the `func`. For more information about [.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) check out the Mozilla Docs!
 
@@ -426,8 +446,10 @@ We also **reverse** the order of how the <div `className="calculation-item">`s a
 
 Now run the app again, upon entering a calculation, we should now have a list of previous expressions.
 
-IMG HERE
+![Calculator with Previous Results](https://i.imgur.com/DK3cxX3.png)
 
+
+‎
 
 ### Clearing our Calculator
 I'll let you implement the clear functionality on your own, remember we just need to follow the steps from before.
@@ -438,11 +460,16 @@ I'll let you implement the clear functionality on your own, remember we just nee
 
 We can make our clear button, clear our state (essentially setting it back to what we specified our initial state in the constructor to be).
 
+‎
+
 **Challenge:** You can try creating a clear handler similar to the ones in real calculators with 'AC' and 'C'. A normal clear 'C' should just reset the `currentExpression`. An all clear 'AC' should reset the `previousEvaluations` array. We should perform a 'C' when the `currentExpression` isn't empty, and perform a 'AC' otherwise.
 
 `currentExpression === ''` should be a good condition to help you with that.
 
-🎉Hurray!!🎉 We have completed our Calculator! Check out the **Optional** section below to complete the functionality of the rest of the buttons.
+### 🎉Hurray! 🎉 
+We have completed our Calculator! Check out the **Optional** section below to complete the functionality of the rest of the buttons.
+
+‎
 
 ## Optional: Further Work
 This calculator is far from done, we also need to implement multiplication, division, Ans, and the +/- operator.
