@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Calculator.css';
 
-class Calculator extends Component {
+class Calculator extends React.Component {
   render() {
     return (
       <div className="calculator">

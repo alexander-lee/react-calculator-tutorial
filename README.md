@@ -55,10 +55,10 @@ Using the power of React, we should be able to make more reusable code, but conv
 Create the file `src/Button.js`, and copy the paste the following code below:
 
 ```js
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Button extends Component {
+class Button extends React.Component {
 }
 
 export default Button;
@@ -73,7 +73,7 @@ In addition, we know that all buttons will have text (such as a number or an ope
 To define the prop types of a component, we define a static JS Object/Dictionary inside component called `static propTypes`.
 
 ```JS
-class Button extends Component {
+class Button extends React.Component {
   static propTypes = {
     isOrange: PropTypes.bool,
     isTwoSpaced: PropTypes.bool,
@@ -245,7 +245,7 @@ As we click buttons on our calculator, we should be changing this value upon eve
 To define the initial state of our component, we first need to set it as a member variable in our Calculator's constructor.
 
 ```JSX
-class Calculator extends Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
 
@@ -466,7 +466,7 @@ We can make our clear button, clear our state (essentially setting it back to wh
 
 `currentExpression === ''` should be a good condition to help you with that.
 
-### 🎉Hurray! 🎉 
+### 🎉Hurray! 🎉
 We have completed our Calculator! Check out the **Optional** section below to complete the functionality of the rest of the buttons.
 
 ‎

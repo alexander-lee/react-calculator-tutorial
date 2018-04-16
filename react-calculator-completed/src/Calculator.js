@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Button from './Button.js';
 import './Calculator.css';
 
-class Calculator extends Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
 

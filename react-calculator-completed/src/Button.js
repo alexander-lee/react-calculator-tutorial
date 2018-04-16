@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Button extends Component {
+class Button extends React.Component {
   static propTypes = {
     isOrange: PropTypes.bool,
     isTwoSpaced: PropTypes.bool,
