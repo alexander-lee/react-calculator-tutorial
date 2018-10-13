@@ -47,7 +47,7 @@ If we look at the `render()` function, there is a lot of similar looking `<div>`
 </div>
 ```
 
-Using the power of React, we should be able to make more reusable code, but converting these buttons into components.
+Using the power of React, we should be able to make more reusable code, by converting these buttons into components.
 
 ‎
 
@@ -170,7 +170,7 @@ With the React Developer Tools, we have the ability to see what our React DOM (D
 ‎
 
 ### Adding Click Handlers
-Now, let's add functionality to these buttons. In React, when working with a parent and children components, it's a standard practice to create a click handler in the parent, and then pass the handler to its children via a prop.
+Now, let's add functionality to these buttons. In parent-child component relationships, it's a standard practice to create a click handler in the parent, and then pass the handler to its children via a prop.
 
 So in `src/Button.js`, let's add a new prop to our `propTypes` definition.
 
