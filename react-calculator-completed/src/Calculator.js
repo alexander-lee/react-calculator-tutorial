@@ -124,6 +124,10 @@ class Calculator extends React.Component {
   flipSign = () => {
     let currentExpression = this.state.currentExpression;
 
+    if (currentExpression == undefined && currentExpression == null) {
+      return;
+    }
+
     // Check if the currentExpression consists of only numbers or 1 or 0 '-' signs in the beginning
     if (currentExpression.match(/^-?[0-9]+$/) && currentExpression !== '0')
     {
